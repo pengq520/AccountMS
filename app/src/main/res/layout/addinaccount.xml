@@ -79,8 +79,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/splnType"
                 android:layout_toRightOf="@id/tvlnType"
-                android:layout_below="@id/txtlnTime"
-                android:entries="@array/intype"></Spinner>
+                android:layout_below="@id/txtlnTime">
+                <!--android:entries="@array/intype">-->
+            </Spinner>
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
