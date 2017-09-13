@@ -7,10 +7,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-
-        <item name="colorPrimar">@color/colorPrimary</item>
-        <item name="colorPrimaryDar">@color/colorPrimaryDark</item>
-        <item name="colorAccen">@color/colorAccent</item>
     </style>
 
 </resources>
