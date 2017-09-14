@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="major">
+        <item>工资</item>
+        <item>奖金</item>
+        <item>提成</item>
+        <item>餐补</item>
+        <item>报销</item>
+        <item>其他</item>
+    </string-array>
+</resources>
