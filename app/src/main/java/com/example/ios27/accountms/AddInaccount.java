@@ -36,25 +36,26 @@ public class AddInaccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addinaccount);
-        txtInMoney = (EditText)findViewById(R.id.txtlnMoney);//获取金额文本框
-        txtInTime = (EditText)findViewById(R.id.txtlnTime);//获取时间文本框
-        txtInHandler = (EditText)findViewById(R.id.txtlnHandler);//获取付款方文本框
-        txtInMark = (EditText)findViewById(R.id.txtlnMark);//获取备注文本框
-        spInType = (Spinner)findViewById(R.id.splnType);//获取类别下拉列表
-        btnInCancelButton = (Button)findViewById(R.id.btnlnSave);//获取保存按钮
-        btnInSaveButton = (Button)findViewById(R.id.btnlnCancel);//获取取消按钮
+        txtInMoney = (EditText) findViewById(R.id.txtlnMoney);//获取金额文本框
+        txtInTime = (EditText) findViewById(R.id.txtlnTime);//获取时间文本框
+        txtInHandler = (EditText) findViewById(R.id.txtlnHandler);//获取付款方文本框
+        txtInMark = (EditText) findViewById(R.id.txtlnMark);//获取备注文本框
+        spInType = (Spinner) findViewById(R.id.splnType);//获取类别下拉列表
+        btnInCancelButton = (Button) findViewById(R.id.btnlnSave);//获取保存按钮
+        btnInSaveButton = (Button) findViewById(R.id.btnlnCancel);//获取取消按钮
 
-        txtInTime.setOnClickListener(new View.OnClickListener() {//为时间文本框设置单机监听事件
+        txtInTime.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View arg0) {
                 showDialog(DATE_DIALOG_ID);
             }
         });
+
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
-
+        updateDisplay();
         btnInSaveButton.setOnClickListener(new View.OnClickListener() {//为保存按钮设置监听事件
             @Override
             public void onClick(View view) {
@@ -88,21 +89,25 @@ public class AddInaccount extends AppCompatActivity {
             }
         });
     }
-    private void updateDisplay(){
+
+    private void updateDisplay() {
         txtInTime.setText(new StringBuilder().append(mYear).append("-").append
-                (mMonth+1).append("-").append(mDay));
+                (mMonth + 1).append("-").append(mDay));
     }//显示设置的时间
 
-    protected Dialog onCreateDialog()//重写onCreateDialog（）方法
+    @Override
+    protected Dialog onCreateDialog(int id)//重写onCreateDialog（）方法
     {
-        switch (id){
+        switch (id) {
             case DATE_DIALOG_ID://弹出时间选择对话框
-                return new DatePickerDialog(this,mDateSetListener,mYear,mMonth,mDay);
+                return new DatePickerDialog(this, mDateSetListener, mYear, mMonth, mDay);
         }
         return null;
     }
-    private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){
-        public void onDateSet(DatePicker view,int year,int monthOfYear,int dayOfMonth){
+
+    private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener()
+    {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             mYear = year;//为年份赋值
             mMonth = monthOfYear;//为月份赋值
             mDay = dayOfMonth;//为天赋值
@@ -110,5 +115,5 @@ public class AddInaccount extends AppCompatActivity {
         }
     };
 
-
 }
+
