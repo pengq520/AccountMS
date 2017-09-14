@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (i){
                     case 0:
                         //使用AddOutaccount窗口初始化Intent
-                        intent=new Intent(MainActivity.this,AddInaccount.class);
+                        intent=new Intent(MainActivity.this,OutInaccount.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 1:
@@ -93,27 +93,27 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         //使用Outaccountinfo窗口初始化Intent
-                        intent=new Intent(MainActivity.this,AddInaccount.class);
+                        intent=new Intent(MainActivity.this,Outaccountinfo.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 3:
                         //使用Inaccountinfo窗口初始化Intent
-                        intent=new Intent(MainActivity.this,AddInaccount.class);
+                        intent=new Intent(MainActivity.this,Inaccountinfo.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 4:
                         //使用Showinfo窗口初始化Intent
-                        intent=new Intent(MainActivity.this,AddInaccount.class);
+                        intent=new Intent(MainActivity.this,Showinfo.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 5:
                         //使用Sysset窗口初始化Intent
-                        intent=new Intent(MainActivity.this,AddInaccount.class);
+                        intent=new Intent(MainActivity.this,Sysset.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 6:
                         //使用Accountflag窗口初始化Intent
-                        intent=new Intent(MainActivity.this,AddInaccount.class);
+                        intent=new Intent(MainActivity.this,Accountflag.class);
                         startActivity(intent);//打开AddOutaccount
                         break;
                     case 7:
