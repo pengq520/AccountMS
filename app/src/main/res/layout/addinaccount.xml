@@ -78,6 +78,7 @@
                 android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/splnType"
+                android:entries="@array/major"
                 android:layout_toRightOf="@id/tvlnType"
                 android:layout_below="@id/txtlnTime">
                 <!--android:entries="工资">-->
