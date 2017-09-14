@@ -54,7 +54,7 @@ public class Inaccountinfo extends AppCompatActivity {
             m++;//表示加一
         }
         //使字符串数组初始化ArrayAdapter对象
-        arrayAdapter = new ArrayAdapter<String>(R.layout.simple_list_item_1,strInfos);
+        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfos);
         lvinfo.setAdapter(arrayAdapter);//为ListView列表设置数据源
     }
 }
