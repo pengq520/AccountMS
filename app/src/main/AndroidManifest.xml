@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Login" android:label="@string/login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Outaccountinfo">
+        <activity android:name=".Outaccountinfo" android:label="@string/outaccount">
         </activity>
         <activity android:name=".Accountflag" android:label="@string/accountflag">
         </activity>
-        <activity android:name=".AddInaccount">
+        <activity android:name=".AddInaccount" android:label="@string/addinaccount">
         </activity>
         <activity android:name=".FlagManage" android:label="@string/flagmanage">
         </activity>
@@ -28,9 +28,9 @@
         <activity android:name=".InfoManage" android:label="@string/infomanage">
 
         </activity>
-        <activity android:name=".Login">
+        <activity android:name=".MainActivity" android:label="@string/mainactivity">
         </activity>
-        <activity android:name=".OutInaccount">
+        <activity android:name=".OutInaccount" android:label="@string/inaccount">
         </activity>
         <activity android:name=".Showinfo" android:label="@string/showinfo">
         </activity>
