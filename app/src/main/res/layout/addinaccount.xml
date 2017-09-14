@@ -132,14 +132,14 @@
                 android:id="@+id/btnlnCancel"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="10dp"
-                android:text="取消"/>
+                android:text="保存"/>
             <Button
 
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnlnSave"
                 android:layout_toLeftOf="@id/btnlnCancel"
-                android:text="保存"/>
+                android:text="取消"/>
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

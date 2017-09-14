@@ -38,11 +38,17 @@ public class Showinfo extends AppCompatActivity {
         lvinfo = (ListView)findViewById(R.id.lvinfo);
         btnflaginfo = (Button)findViewById(R.id.btnflaginfo);
 
-        btnflaginfo.setOnClickListener(new View.OnClickListener() {
+        /*btnflaginfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(Showinfo.this,"dsad",Toast.LENGTH_LONG).show();
                 ShowInfo(R.id.btnflaginfo);      //显示便签信息
+            }
+        });*/
+        btnflaginfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShowInfo(R.id.btnflaginfo);
             }
         });
 

@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 //import java.time.Year;
 import com.example.ios27.accountms.dao.InaccountDAO;
+import com.example.ios27.accountms.dao.OutaccountDAO;
 import com.example.ios27.accountms.model.Tb_inaccount;
+import com.example.ios27.accountms.model.Tb_outaccount;
 
 import java.util.Calendar;
 
@@ -62,12 +64,12 @@ public class OutInaccount extends AppCompatActivity {
                 String strInMoney = txtInMoney.getText().toString();//获取金额文本框的值
                 if (!strInMoney.isEmpty()){//判断金额不为空
                     //创建InaccountDAO对象
-                    InaccountDAO inaccountDAO = new InaccountDAO(OutInaccount.this);
-                    Tb_inaccount tb_inaccount = new Tb_inaccount(inaccountDAO.getMaxId()+1,
+                    OutaccountDAO outaccountDAO = new OutaccountDAO(OutInaccount.this);
+                    Tb_outaccount tb_outaccount = new Tb_outaccount(outaccountDAO.getMaxId()+1,
                             Double.parseDouble(strInMoney),txtInTime.getText().toString(),
                             spInType.getSelectedItem().toString(),txtInHandler.getText().toString(),
                             txtInMark.getText().toString());//创建tb_inaccount对象
-                    inaccountDAO.add(tb_inaccount);//添加收入信息
+                    outaccountDAO.add(tb_outaccount);//添加收入信息
                     //弹出信息提示
                     Toast.makeText(OutInaccount.this,"【新增收入】数据添加成功!",Toast.LENGTH_SHORT).show();
                 }

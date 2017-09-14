@@ -12,29 +12,29 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Outaccountinfo">
         </activity>
-        <activity android:name=".Accountflag">
+        <activity android:name=".Accountflag" android:label="@string/accountflag">
         </activity>
         <activity android:name=".AddInaccount">
         </activity>
-        <activity android:name=".FlagManage">
+        <activity android:name=".FlagManage" android:label="@string/flagmanage">
         </activity>
-        <activity android:name=".Inaccountinfo">
+        <activity android:name=".Inaccountinfo" android:label="@string/inaccountinfo">
         </activity>
-        <activity android:name=".InfoManage">
+        <activity android:name=".InfoManage" android:label="@string/infomanage">
+
         </activity>
         <activity android:name=".Login">
         </activity>
         <activity android:name=".OutInaccount">
         </activity>
-        <activity android:name=".Showinfo">
+        <activity android:name=".Showinfo" android:label="@string/showinfo">
         </activity>
-        <activity android:name=".Sysset">
+        <activity android:name=".Sysset" android:label="@string/sysset">
         </activity>
 
     </application>

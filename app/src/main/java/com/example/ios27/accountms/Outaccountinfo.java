@@ -10,7 +10,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ios27.accountms.dao.InaccountDAO;
+import com.example.ios27.accountms.dao.OutaccountDAO;
 import com.example.ios27.accountms.model.Tb_inaccount;
+import com.example.ios27.accountms.model.Tb_outaccount;
 
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class Outaccountinfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inaccountinfo);
+        setContentView(R.layout.outaccountinfo);
         lvinfo = (ListView)findViewById(R.id.lvinaccountinfo);
         ShowInfo(R.id.btnininfo);
 
@@ -42,14 +44,14 @@ public class Outaccountinfo extends AppCompatActivity {
         String[] strInfos = null;//定义字符串数组，用来存储收入信息
         ArrayAdapter<String>arrayAdapter = null;//创建Arraydapter对象
         strType = "btnininfo";//为strType赋值
-        InaccountDAO inaccountinfo = new InaccountDAO(Outaccountinfo.this);
-        List<Tb_inaccount>listinfos=inaccountinfo.getScrollData(0,(int)inaccountinfo.getCount());
+        OutaccountDAO outaccountinfo = new OutaccountDAO(Outaccountinfo.this);
+        List<Tb_outaccount>listinfos=outaccountinfo.getScrollData(0,(int)outaccountinfo.getCount());
         strInfos = new String[listinfos.size()];//设置字符串数组的长度
         int m=0;//定义一个开始标示
-        for (Tb_inaccount tb_inaccount:listinfos){//遍历List泛型集合
+        for (Tb_outaccount Tb_outaccount:listinfos){//遍历List泛型集合
             //将收入相关组合成一个字符串，存储到字符串数组的相应位置
-            strInfos[m]=tb_inaccount.getid()+"|"+tb_inaccount.getType()+" "+
-                    String.valueOf(tb_inaccount.getMoney())+"  元  "+tb_inaccount.getTime();
+            strInfos[m]=Tb_outaccount.getid()+"|"+Tb_outaccount.getType()+" "+
+                    String.valueOf(Tb_outaccount.getMoney())+"  元  "+Tb_outaccount.getTime();
             m++;//表示加一
         }
         //使字符串数组初始化ArrayAdapter对象
