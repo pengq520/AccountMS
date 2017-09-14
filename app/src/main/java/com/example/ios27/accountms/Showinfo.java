@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ios27.accountms.dao.FlagDAO;
 import com.example.ios27.accountms.dao.InaccountDAO;
@@ -37,6 +38,33 @@ public class Showinfo extends AppCompatActivity {
         lvinfo = (ListView)findViewById(R.id.lvinfo);
         btnflaginfo = (Button)findViewById(R.id.btnflaginfo);
 
+        btnflaginfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(Showinfo.this,"dsad",Toast.LENGTH_LONG).show();
+                ShowInfo(R.id.btnflaginfo);      //显示便签信息
+            }
+        });
+
+
+
+        lvinfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String strInfo = String.valueOf(((TextView)view).getText());
+                String strid= strInfo.substring(0,strInfo.indexOf('|'));
+                Intent intent = null;
+                if (strType=="btnoutinfo"|strType=="btnininfo"){
+                    intent =new Intent(Showinfo.this,InfoManage.class);
+                    intent.putExtra(FLAG,new String[]{strid,strType});
+                }
+                else if (strType=="btnflaginfo"){
+                    intent=new Intent(Showinfo.this,FlagManage.class);
+                    intent.putExtra("note",strid.toString());
+                }
+                startActivity(intent);
+            }
+        });
 
 }
     private void ShowInfo(int intType) {     //用来根据传入的管理类型显示相应信息
@@ -52,7 +80,8 @@ public class Showinfo extends AppCompatActivity {
                 int i = 0;                                //定义一个开始标识
                 for (Tb_outaccount tb_outaccount : listoutinfos) {     //遍历list泛型集合
                     //将支出的相关信息组合成一个字符串，存储到字符串数组的相应位置
-                    strInfos[i] = tb_outaccount.getid() + "|" + tb_outaccount.getType() + " " + String.valueOf(tb_outaccount.getMoney()) + "元" + tb_outaccount.getTime();
+                    strInfos[i] = tb_outaccount.getid() + "|" + tb_outaccount.getType() + " " +
+                            String.valueOf(tb_outaccount.getMoney()) + "元" + tb_outaccount.getTime();
                     i++;       //标识加一
                 }
                 break;
@@ -65,7 +94,8 @@ public class Showinfo extends AppCompatActivity {
                 int m = 0;                                   //定义一个开始标识
                 for (Tb_inaccount tb_inaccount : listinfos) {              //遍历list泛型集合
                     //将支出的相关信息组合成一个字符串，存储到字符串数组的相应位置
-                    strInfos[m] = tb_inaccount.getid() + "|" + tb_inaccount.getType() + "   " + String.valueOf(tb_inaccount.getMoney()) + "元  " + tb_inaccount.getTime();
+                    strInfos[m] = tb_inaccount.getid() + "|" + tb_inaccount.getType() + "   " +
+                            String.valueOf(tb_inaccount.getMoney()) + "元  " + tb_inaccount.getTime();
                     m++;
                 }
                 break;
@@ -81,6 +111,7 @@ public class Showinfo extends AppCompatActivity {
                         strInfos[n]=strInfos[n].substring(0,15)+"....";
                     n++;
                 }
+                Toast.makeText(Showinfo.this,strInfos[0],Toast.LENGTH_LONG).show();
                 break;
 
         }
@@ -88,29 +119,6 @@ public class Showinfo extends AppCompatActivity {
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfos);
         lvinfo.setAdapter(arrayAdapter);
 
-        btnflaginfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ShowInfo(R.id.btnflaginfo);      //显示便签信息
-            }
-        });
 
-        lvinfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String strInfo = String.valueOf(((TextView)view).getText());
-                String strid= strInfo.substring(0,strInfo.indexOf('|'));
-                Intent intent = null;
-                if (strType=="btnoutinfo"|strType=="btnininfo"){
-                    intent =new Intent(Showinfo.this,InfoManage.class);
-                    intent.putExtra(FLAG,new String[]{strid,strType});
-                }
-                else if (strType=="btnflaginfo"){
-                    intent=new Intent(Showinfo.this,FlagManage.class);
-                    intent.putExtra(FLAG,strid);
-                }
-                startActivity(intent);
-            }
-        });
     }
 }

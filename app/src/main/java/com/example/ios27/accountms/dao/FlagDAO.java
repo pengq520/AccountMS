@@ -37,7 +37,7 @@ public class FlagDAO {
      */
     public void update(Tb_flag tb_flag) {
         db=helper.getWritableDatabase();// 初始化SQLiteDatabase对象
-        db.execSQL("update tb_flag set fla =? where _id=?",
+        db.execSQL("update tb_flag set flag =? where _id=?",
                 new Object[]{tb_flag.getFlag(),tb_flag.getid()});// 执行修改便签信息操作
     }
 

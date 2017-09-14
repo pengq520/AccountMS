@@ -26,20 +26,29 @@ public class FlagManage extends AppCompatActivity {
         btnDel = (Button)findViewById(R.id.btnFlagManageDelete);//获取删除按钮
 
         Intent intent = getIntent();//创建Intent对象
-        Bundle bundle = intent.getExtras();//获取便签id
-        strid = bundle.getString(Showinfo.FLAG);//将便签id转换为字符串
+        //Bundle bundle = intent.getExtras();//获取便签id
+        strid = intent.getStringExtra("note");   //将便签id转换为字符串
+       // Toast.makeText(FlagManage.this,strid,Toast.LENGTH_SHORT).show();
+
         final FlagDAO flagDAO = new FlagDAO(FlagManage.this);//创建FlagDAO对象
         txtFlag.setText(flagDAO.find(Integer.parseInt(strid)).getFlag());//根据便签id查找便签信息，并显示在文本框中
 
         btnEdit.setOnClickListener(new View.OnClickListener() {//为修改按钮设置监听事件
             @Override
             public void onClick(View view) {
-                Tb_flag tb_flag = new Tb_flag();//创建Tb_flag对象
-                tb_flag.setid(Integer.parseInt(strid));//设置便签id
-                tb_flag.setFlag(txtFlag.getTag().toString());//设置便签值
-                flagDAO.update(tb_flag);//修改便签信息
-                //弹出提示消息框
-                Toast.makeText(FlagManage.this,"【便签数据】修改成功！",Toast.LENGTH_SHORT).show();
+                try {
+                    Tb_flag tb_flag = new Tb_flag();//创建Tb_flag对象
+                    tb_flag.setid(Integer.parseInt(strid));//设置便签id
+                    tb_flag.setFlag(txtFlag.getText().toString());//设置便签值
+                    flagDAO.update(tb_flag);//修改便签信息
+                    //弹出提示消息框
+                    Toast.makeText(FlagManage.this, "【便签数据】修改成功！", Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(FlagManage.this,e.toString(), Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
