@@ -59,7 +59,7 @@ public class InfoManage extends AppCompatActivity{
 
         Intent intent=getIntent();// 创建Intent对象
         Bundle bundle=intent.getExtras();// 获取传入的数据，并使用Bundle记录
-        strInfos=bundle.getStringArray(Showinfo.FINGERPRINT_SERVICE);// 获取Bundle中记录的信息
+        strInfos=bundle.getStringArray(Showinfo.FLAG);// 获取Bundle中记录的信息
         strid=strInfos[0];// 记录id
         strType=strInfos[1];// 记录类型
         if(strType.equals("btnoutinfo")){// 如果类型是btnoutinfo
@@ -92,23 +92,12 @@ public class InfoManage extends AppCompatActivity{
                 showDialog(DATE_DIALOG_ID);// 显示日期选择对话框
             }
         });
-
-        btnDel.setOnClickListener(new View.OnClickListener() {// 为删除按钮设置监听事件
-            @Override
-            public void onClick(View arg0) {
-                if(strType.equals("btnoutinfo")){//判断类型如果是btnoutinfo
-                    outaccountDAO.detele(Integer.parseInt(strid));//根据编号删除支出信息
-                }else  if(strType.equals("btnininfo")){//判断类型如果是btnininfo
-                    inaccountDAO.detele(Integer.parseInt(strid));//根据编号删除支出信息
-                }
-                // 弹出信息提示
-                Toast.makeText(InfoManage.this, "〖数据〗删除成功！", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         btnEdit.setOnClickListener(new View.OnClickListener(){// 为修改按钮设置监听事件
             @Override
             public void onClick(View arg0) {
+
+
+                //Toast.makeText(InfoManage.this, "1", Toast.LENGTH_SHORT).show();
                 if(strType.equals("btnoutinfo")){// 判断类型如果是btnoutinfo
 
                     Tb_outaccount tb_outaccount=new Tb_outaccount();// 创建Tb_outaccount对象
@@ -132,6 +121,21 @@ public class InfoManage extends AppCompatActivity{
                 }
                 // 弹出信息提示
                 Toast.makeText(InfoManage.this, "〖数据〗修改成功！", Toast.LENGTH_SHORT).show();
+               // Intent intent2=new Intent(InfoManage.this,InfoManage.class);
+                //startActivity(intent);//打开AddOutaccount
+            }
+        });
+
+        btnDel.setOnClickListener(new View.OnClickListener() {// 为删除按钮设置监听事件
+            @Override
+            public void onClick(View arg0) {
+                if(strType.equals("btnoutinfo")){//判断类型如果是btnoutinfo
+                    outaccountDAO.detele(Integer.parseInt(strid));//根据编号删除支出信息
+                }else  if(strType.equals("btnininfo")){//判断类型如果是btnininfo
+                    inaccountDAO.detele(Integer.parseInt(strid));//根据编号删除支出信息
+                }
+                // 弹出信息提示
+                Toast.makeText(InfoManage.this, "〖数据〗删除成功！", Toast.LENGTH_SHORT).show();
             }
         });
         final Calendar c = Calendar.getInstance();// 获取当前系统日期
@@ -139,6 +143,9 @@ public class InfoManage extends AppCompatActivity{
         mMonth = c.get(Calendar.MONTH);// 获取月份
         mDay = c.get(Calendar.DAY_OF_MONTH);// 获取天数
         updateDisplay();// 显示当前系统时间
+
+
+
     }
 
     private void initViews(){
