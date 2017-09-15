@@ -23,6 +23,7 @@ public class Accountflag extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accountflag);
 
+        final Intent intent=getIntent();// 创建Intent对象
         txtFlag = (EditText)findViewById(R.id.txtFlag);//获取便签文本框
         btnflagSaveButton = (Button)findViewById(R.id.btnflagSave);//获取保存按钮
         btnflagCancelButton = (Button)findViewById(R.id.btnflagCancel);//获取取消按钮
@@ -37,6 +38,8 @@ public class Accountflag extends AppCompatActivity {
                     flagDAO.add(tb_flag);//添加便签信息
                     //弹出信息框提示
                     Toast.makeText(Accountflag.this,"【新增标签】数据添加成功！",Toast.LENGTH_SHORT).show();
+                    setResult(1,intent);
+                    finish();
                 }
                 else {
                     Toast.makeText(Accountflag.this,"请输入便签！",Toast.LENGTH_SHORT).show();

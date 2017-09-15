@@ -51,6 +51,7 @@ public class AddInaccount extends AppCompatActivity {
             }
         });
 
+
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
@@ -70,6 +71,7 @@ public class AddInaccount extends AppCompatActivity {
                     inaccountDAO.add(tb_inaccount);//添加收入信息
                     //弹出信息提示
                     Toast.makeText(AddInaccount.this,"【新增收入】数据添加成功!",Toast.LENGTH_SHORT).show();
+
                 }
                 else {
                     Toast.makeText(AddInaccount.this,"请输入收入金额!",Toast.LENGTH_SHORT).show();

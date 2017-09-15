@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     case 6:
                         //使用Accountflag窗口初始化Intent
                         intent=new Intent(MainActivity.this,Accountflag.class);
-                        startActivity(intent);//打开AddOutaccount
+                        startActivityForResult(intent,1);//打开AddOutaccount
                         break;
                     case 7:
                         finish();//关闭当前Activity

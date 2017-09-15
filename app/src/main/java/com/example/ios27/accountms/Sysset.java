@@ -1,5 +1,6 @@
 package com.example.ios27.accountms;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -39,6 +40,8 @@ public class Sysset extends AppCompatActivity {
                 }
                 //弹出信息提示
                 Toast.makeText(Sysset.this,"【密码】设置成功！",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(Sysset.this,Login.class);
+                startActivity(intent);
             }
         });
         //重置密码文本框
