@@ -85,7 +85,7 @@ public class Showinfo extends Activity {
                     intent = new Intent(Showinfo.this, FlagManage.class);// 使用FlagManage窗口初始化Intent对象
                     intent.putExtra(FLAG, strid);// 设置要传递的数据
                 }
-                startActivity(intent);// 执行Intent，打开相应的Activity
+                startActivityForResult(intent,2);// 执行Intent，打开相应的Activity
             }
         });
     }

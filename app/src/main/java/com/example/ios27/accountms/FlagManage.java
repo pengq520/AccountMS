@@ -25,7 +25,7 @@ public class FlagManage extends AppCompatActivity {
         btnEdit = (Button)findViewById(R.id.btnFlagManageEdit);//获取修改按钮
         btnDel = (Button)findViewById(R.id.btnFlagManageDelete);//获取删除按钮
 
-        Intent intent = getIntent();//创建Intent对象
+        final Intent intent = getIntent();//创建Intent对象
         Bundle bundle = intent.getExtras();//获取便签id
         strid = bundle.getString(Showinfo.FLAG);   //将便签id转换为字符串
        // Toast.makeText(FlagManage.this,strid,Toast.LENGTH_SHORT).show();
@@ -43,6 +43,8 @@ public class FlagManage extends AppCompatActivity {
                     flagDAO.update(tb_flag);//修改便签信息
                     //弹出提示消息框
                     Toast.makeText(FlagManage.this, "【便签数据】修改成功！", Toast.LENGTH_SHORT).show();
+                    setResult(2,intent);
+                    finish();
                 }
                 catch (Exception e)
                 {

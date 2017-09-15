@@ -57,7 +57,7 @@ public class InfoManage extends AppCompatActivity{
         btnEdit = (Button)findViewById(R.id.btnInOutEdit);
         btnDel = (Button)findViewById(R.id.btnInOutDelete);
 
-        Intent intent=getIntent();// 创建Intent对象
+        final Intent intent=getIntent();// 创建Intent对象
         Bundle bundle=intent.getExtras();// 获取传入的数据，并使用Bundle记录
         strInfos=bundle.getStringArray(Showinfo.FLAG);// 获取Bundle中记录的信息
         strid=strInfos[0];// 记录id
@@ -123,6 +123,8 @@ public class InfoManage extends AppCompatActivity{
                 Toast.makeText(InfoManage.this, "〖数据〗修改成功！", Toast.LENGTH_SHORT).show();
                 Intent intent2=new Intent(InfoManage.this,Inaccountinfo.class);
                 //startActivity(intent);//打开AddOutaccount
+                setResult(2,intent);
+                finish();
             }
         });
 
