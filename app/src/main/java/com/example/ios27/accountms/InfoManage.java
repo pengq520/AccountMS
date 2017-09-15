@@ -121,7 +121,7 @@ public class InfoManage extends AppCompatActivity{
                 }
                 // 弹出信息提示
                 Toast.makeText(InfoManage.this, "〖数据〗修改成功！", Toast.LENGTH_SHORT).show();
-               // Intent intent2=new Intent(InfoManage.this,InfoManage.class);
+                Intent intent2=new Intent(InfoManage.this,Inaccountinfo.class);
                 //startActivity(intent);//打开AddOutaccount
             }
         });

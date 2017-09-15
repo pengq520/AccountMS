@@ -57,4 +57,5 @@ public class Inaccountinfo extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,strInfos);
         lvinfo.setAdapter(arrayAdapter);//为ListView列表设置数据源
     }
+
 }
