@@ -81,7 +81,8 @@
                 android:id="@+id/spInOutType"
                 android:layout_toRightOf="@id/tvInOutType"
                 android:layout_below="@id/txtInOutTime"
-                android:textColor="#000000"></Spinner>
+                android:textColor="#000000"
+                android:entries="@array/major"></Spinner>
                 <!--android:entries="@array/type"-->
 
             <TextView

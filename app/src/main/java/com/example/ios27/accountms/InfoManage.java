@@ -88,7 +88,7 @@ public class InfoManage extends AppCompatActivity{
             public void onClick(View arg0) {
 
 
-                Toast.makeText(InfoManage.this, "1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(InfoManage.this, "1", Toast.LENGTH_SHORT).show();
                 if(strType.equals("btnoutinfo")){// 判断类型如果是btnoutinfo
 
                     Tb_outaccount tb_outaccount=new Tb_outaccount();// 创建Tb_outaccount对象
@@ -112,6 +112,8 @@ public class InfoManage extends AppCompatActivity{
                 }
                 // 弹出信息提示
                 Toast.makeText(InfoManage.this, "〖数据〗修改成功！", Toast.LENGTH_SHORT).show();
+               // Intent intent2=new Intent(InfoManage.this,InfoManage.class);
+                //startActivity(intent);//打开AddOutaccount
             }
         });
 
