@@ -46,9 +46,18 @@ public class InfoManage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.infomanage);// 设置布局文件
 
-        initViews();//获取各对象
+        //initViews();//获取各对象
+        tvtitle = (TextView)findViewById(R.id.inouttitle);
+        textView = (TextView)findViewById(R.id.tvInOut);
+        txtMoney = (EditText)findViewById(R.id.txtInOutMoney);
+        txtTime = (EditText)findViewById(R.id.txtInOutTime);
+        spType = (Spinner)findViewById(R.id.spInOutType);
+        txtHA = (EditText)findViewById(R.id.txtInOut);
+        txtMark = (EditText)findViewById(R.id.txtInOutMark);
+        btnEdit = (Button)findViewById(R.id.btnInOutEdit);
+        btnDel = (Button)findViewById(R.id.btnInOutDelete);
 
-        final Intent intent=getIntent();// 创建Intent对象
+        Intent intent=getIntent();// 创建Intent对象
         Bundle bundle=intent.getExtras();// 获取传入的数据，并使用Bundle记录
         strInfos=bundle.getStringArray(Showinfo.FINGERPRINT_SERVICE);// 获取Bundle中记录的信息
         strid=strInfos[0];// 记录id
